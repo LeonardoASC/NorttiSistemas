@@ -4,10 +4,11 @@
     <div class="container-fluid bg-dark" style="height: 100%">
         <div class="row">
             <div class="col-12 text-center py-5 bg-light">
-                <h1>Bem vindo a loja</h1>
-                <p class="lead text-dark">Nortti Sistemas</p>
+                <img src="https://nortti.net/assets/img/logo.png" alt="Foto" class="img-fluid">
             </div>
+            <p class="lead text-dark text-center">Bem Vindo a Loja!!!</p>
         </div>
+        <a href="{{ url('/') }}" class="btn btn-primary ">Voltar</a>
         <div class="container-md">
             <div class="row mt-5">
                 @foreach ($produtos as $produto)

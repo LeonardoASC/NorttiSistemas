@@ -6,8 +6,8 @@
 <div class="container-fluid bg-dark" style="height: 100vh;">
     <div class="row">
         <div class="col-12 text-center py-5 bg-light">
-            <h1 class="display-1 mt-5 text-dark">Nortti Sistemas</h1>
-            <p class="lead text-dark">Este é um sistema de gerenciamento de produtos e categorias desenvolvido com Laravel 10.x e Bootstrap 5.</p>
+            <img src="https://nortti.net/assets/img/logo.png" alt="Foto" class="img-fluid">
+            <p class="lead text-dark text-center">Este é um sistema de gerenciamento de produtos e categorias desenvolvido com Laravel 10.x e Bootstrap 5.</p>
         </div>
     </div>
 
