@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Loja;
 use App\Models\Venda;
 use App\Models\Produto;
+use App\Services\VendaService;
 use App\Http\Requests\StoreLojaRequest;
 use App\Http\Requests\UpdateLojaRequest;
 use Illuminate\Http\Request;
 class LojaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $vendaService;
+
+    public function __construct(VendaService $vendaService)
+    {
+        $this->vendaService = $vendaService;
+    }
+
     public function index()
     {
         $produtos = Produto::with('categoria')->get();
@@ -58,29 +63,7 @@ class LojaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        // $request->validate([
-        //     'produto_id' => 'required|exists:produtos,id',
-        //     'quantidade' => 'required|integer|min:1',
-        //     'preco_total' => 'required|numeric|min:0',
-        // ]);
-
-        $produto = Produto::findOrFail($id);
-        if ($produto->quantidade > 0) {
-            $produto->quantidade -= 1;
-            $produto->save();
-
-            // $venda = new Venda();
-            // $venda->produto_id = $request->produto_id;
-            // $venda->quantidade = $request->quantidade;
-            // $compra->preco_total = $produto->valor * $request->quantidade;
-
-            // $venda->save();
-
-            return redirect()->route('lojas.index')->with('success', 'Produto comprado com sucesso!');
-        } else {
-            return redirect()->back()->with('error', 'Este produto está fora de estoque!');
-        }
+        //
     }
 
     /**
@@ -89,5 +72,16 @@ class LojaController extends Controller
     public function destroy(Loja $loja)
     {
         //
+    }
+
+    public function comprarProduto(Request $request, Produto $produto)
+    {
+        $quantidade_comprados = $request->input('quantidade_comprados');
+
+        if ($this->vendaService->comprarProduto($produto, $quantidade_comprados)) {
+            return redirect()->route('lojas.index')->with('success', 'Produto comprado com sucesso!');
+        } else {
+            return redirect()->back()->with('error', 'Este produto está fora de estoque!');
+        }
     }
 }

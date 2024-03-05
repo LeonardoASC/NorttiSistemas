@@ -23,3 +23,4 @@ Route::resource('vendas', 'App\Http\Controllers\VendaController');
 
 // "usuarios"
 Route::resource('lojas', 'App\Http\Controllers\LojaController');
+Route::post('/lojas/{produto}', [App\Http\Controllers\LojaController::class, 'comprarProduto'])->name('comprar.produto');

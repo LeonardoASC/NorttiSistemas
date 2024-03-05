@@ -1,4 +1,4 @@
-<div class="col-md-2 col-lg-2 col-3 d-md-block bg-dark sidebar vh-100">
+<div class="col-md-2 col-lg-2 col-3 d-md-block bg-dark position-fixed vh-100">
     <div class="position-sticky">
         <!-- Foto no topo da sidebar -->
         <img src="https://nortti.net/assets/img/logo.png" alt="Foto" class="img-fluid mx-auto d-block mt-3 mb-3"
