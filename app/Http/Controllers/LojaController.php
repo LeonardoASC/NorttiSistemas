@@ -77,7 +77,7 @@ class LojaController extends Controller
     public function comprarProduto(Request $request, Produto $produto)
     {
         $quantidade_comprados = $request->input('quantidade_comprados');
-
+        
         if ($this->vendaService->comprarProduto($produto, $quantidade_comprados)) {
             return redirect()->route('lojas.index')->with('success', 'Produto comprado com sucesso!');
         } else {

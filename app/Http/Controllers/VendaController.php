@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Venda;
+use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreVendaRequest;
 use App\Http\Requests\UpdateVendaRequest;
 
@@ -15,7 +17,23 @@ class VendaController extends Controller
     public function index()
     {
         $vendas = Venda::with('produto')->get();
-        return view('private.vendas.index', compact('vendas'));
+
+        // Obter os 3 produtos mais utilizados
+        $produtos_mais_utilizados = Venda::select('produto_id', DB::raw('COUNT(*) as total_vendas'))
+            ->groupBy('produto_id')
+            ->orderByDesc('total_vendas')
+            ->take(3)
+            ->get();
+
+        // Carregar os detalhes dos produtos mais utilizados
+        $detalhes_produtos_mais_utilizados = [];
+        foreach ($produtos_mais_utilizados as $produto) {
+            $detalhes_produto = Produto::find($produto->produto_id);
+            $detalhes_produto->total_vendas = $produto->total_vendas;
+            $detalhes_produtos_mais_utilizados[] = $detalhes_produto;
+        }
+
+        return view('private.vendas.index', compact('vendas', 'detalhes_produtos_mais_utilizados'));
     }
 
     /**

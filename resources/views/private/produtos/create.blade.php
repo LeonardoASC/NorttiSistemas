@@ -9,12 +9,12 @@
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" class="form-control" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="valor">Valor</label>
                 <input type="number" name="valor" id="valor" class="form-control" required>
             </div>
-           
+
             <div class="form-group">
                 <label for="categoria_id">Categoria</label>
                 <select name="categoria_id" id="categoria_id" class="form-control" required>
@@ -30,10 +30,10 @@
             </div>
 
             <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" name="foto" id="foto" class="form-control" required>
+                <label for="foto">Foto (URL da Imagem)</label>
+                <input type="text" name="foto" id="foto" class="form-control" required>
             </div>
-            
+
             <a href="{{ route('produtos.index') }}" class="btn btn-secondary">Cancelar</a>
 
             <button type="submit" class="btn btn-primary">Criar</button>

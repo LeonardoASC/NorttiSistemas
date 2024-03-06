@@ -39,17 +39,18 @@
                                                         aria-label="Fechar"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p class="mb-3">Tem certeza de que deseja comprar <strong>{{ $produto->nome }}</strong>?</p>
+                                                    <p class="mb-3">Tem certeza de que deseja comprar
+                                                        <strong>{{ $produto->nome }}</strong>?</p>
                                                     <form action="{{ route('comprar.produto', $produto) }}" method="POST"
                                                         id="comprarForm">
                                                         @csrf
                                                         <div class="input-group mb-3 col-xs-2">
                                                             <button class="btn btn-outline-secondary" type="button"
                                                                 id="decreaseValue{{ $produto->id }}">-</button>
-                                                                <input type="text" class="form-control text-center  "
+                                                            <input type="text" class="form-control text-center "
                                                                 id="counterValue{{ $produto->id }}"
                                                                 name="quantidade_comprados" value="1"
-                                                                data-max="{{ $produto->quantidade }}" disabled>
+                                                                data-max="{{ $produto->quantidade }}" readonly>
                                                             <button class="btn btn-outline-secondary" type="button"
                                                                 id="increaseValue{{ $produto->id }}"
                                                                 @if (1 >= $produto->quantidade) disabled @endif>+</button>

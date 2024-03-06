@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Página Inicial')
+@section('title', 'Produtos')
 
 @section('content')
 <div class="container">
-    
-    <h1>Produtos</h1>
+
+
     <a href="{{ route('produtos.create') }}" class="btn btn-primary">Cadastrar Produto</a>
     <a href="{{ url('/') }}" class="btn btn-primary">Voltar</a>
     <table class="table table-striped">
@@ -21,13 +21,13 @@
         <tbody>
             @if($produtos->isEmpty())
                 <tr>
-                    <td colspan="5">Nenhum produto cadastrado</td>  
+                    <td colspan="5">Nenhum produto cadastrado</td>
                 </tr>
             @else
                 @foreach ($produtos as $produto)
                     <tr>
                         <td>{{ $produto->nome }}</td>
-                        <td><img src="{{ asset('storage/' . $produto->foto) }}" alt="{{ $produto->nome }}" width="100"></td>
+                        <td><img src="{{ $produto->foto }}" alt="{{ $produto->foto }}" width="50"></td>
                         <td>{{ $produto->valor }}</td>
                         <td>{{ $produto->categoria->nome }}</td>
                         <td>{{ $produto->quantidade }}</td>
@@ -65,7 +65,7 @@
                              </div>
                          </div>
                         </td>
-                    </tr>    
+                    </tr>
                 @endforeach
             @endif
         </tbody>
