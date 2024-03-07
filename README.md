@@ -7,6 +7,30 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+### Instalação
+
+1. Clone este repositório:
+    git clone https://github.com/LeonardoASC/NorttiSistemas
+    
+2. Entre no diretório do projeto:
+    cd seu-projeto
+
+3. Instale as dependências do Composer:
+    composer install
+### Configuração do Ambiente
+
+1. Copie o arquivo `.env.example` para `.env`:
+    cp .env.example .env, apos isso configure de acordo com o banco de dados criado.
+
+2. Rode as seeders.
+    php artisan migrate --seed
+
+### Executando o Servidor
+
+Para iniciar o servidor local do Laravel, execute o seguinte comando:
+php artisan serve
+    
+    
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
