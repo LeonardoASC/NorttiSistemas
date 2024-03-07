@@ -17,17 +17,17 @@ class VendaSeeder extends Seeder
                 [
                     'produto_id' => 1,
                     'quantidade' => 2,
-                    'preco_total' => 100.00,
+                    'preco_total' => 39.98,
                 ],
                 [
                     'produto_id' => 2,
                     'quantidade' => 3,
-                    'preco_total' => 150.00,
+                    'preco_total' => 89.97,
                 ],
                 [
                     'produto_id' => 3,
                     'quantidade' => 1,
-                    'preco_total' => 50.00,
+                    'preco_total' => 39.99,
                 ],
             ];
 

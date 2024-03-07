@@ -53,7 +53,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Produto</th>
+                            <th class="row">
+                                <p class="col">Produto <span class="fw-light">(Preço unitário)</span></p>
+                            </th>
                             <th>Quantidade</th>
                             <th>Preço Total</th>
                             <th>Data da Compra</th>
@@ -62,7 +64,9 @@
                     <tbody>
                         @foreach ($vendas as $venda)
                             <tr>
-                                <td>{{ $venda->produto->nome }}</td>
+                                <td>
+                                    <p class="col">{{ $venda->produto->nome }} <span class="fw-light">({{ $venda->produto->valor }})</span></p>
+                                </td>
                                 <td>{{ $venda->quantidade }}</td>
                                 <td>{{ $venda->preco_total }}</td>
                                 <td>{{ $venda->created_at->format('d/m/Y H:i') }}</td>
